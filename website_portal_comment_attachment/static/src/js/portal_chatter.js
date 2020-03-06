@@ -6,9 +6,8 @@ odoo.define('website_portal_comment_attachment.chatter', function (require) {
 
     PortalChatter.include({
         _loadTemplates: function(){
-            var res = this._super.apply(this, arguments);
             ajax.loadXML('/website_portal_comment_attachment/static/src/xml/portal_chatter.xml', core.qweb);
-            return res;
+            return this._super.apply(this, arguments);
         },
         _onClickAttachmentsAdd: function(){
             var input = $('#chatter_attachment');
@@ -48,20 +47,19 @@ odoo.define('website_portal_comment_attachment.chatter', function (require) {
             }
         },
         _onTextareaMessageComposerKeyup: function(ev){
-            var val = ev.target.value;
             var btn_add = $('.o_portal_chatter_attachments_add');
-            if (val == "") {
-                btn_add.prop("disabled", true);
-            }
-            else {
-                btn_add.prop("disabled", false);
-            }
+            btn_add.prop("disabled", ev.target.value == "");
         },
+        events: _.extend(
+            {
+                "click .o_portal_chatter_attachments_add": '_onClickAttachmentsAdd',
+                "change #chatter_attachment": '_onChatterAttachmentChange',
+                "keyup form.o_portal_chatter_composer_form textarea": '_onTextareaMessageComposerKeyup'
+            },
+            PortalChatter.prototype.events
+        ),
         init: function () {
             this._super.apply(this, arguments);
-            this.events["click .o_portal_chatter_attachments_add"] = '_onClickAttachmentsAdd';
-            this.events["change #chatter_attachment"] = '_onChatterAttachmentChange';
-            this.events["keyup form.o_portal_chatter_composer_form textarea"] = '_onTextareaMessageComposerKeyup'
         },
     });
 });

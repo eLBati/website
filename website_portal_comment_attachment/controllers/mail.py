@@ -15,5 +15,5 @@ class PortalChatterWithAttachments(PortalChatter):
             attachments = [(attachment.filename, attachment.read())]
             kw['attachments'] = attachments
 
-        return super(PortalChatterWithAttachments, self).portal_chatter_post(
+        return super().portal_chatter_post(
             res_model, res_id, message, **kw)
