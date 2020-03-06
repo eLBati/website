@@ -1,7 +1,7 @@
 # Copyright 2019 ABF OSIELL <http://osiell.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
-    "name": "Website Portal Comments Attachments",
+    "name": "Website Portal Comment Attachment",
     "summary": "Add an attachment on any portal comments",
     "version": "12.0.1.0.0",
     "category": "Website",

@@ -1,4 +1,4 @@
-odoo.define('website_portal_comments_attachments.chatter', function (require) {
+odoo.define('website_portal_comment_attachment.chatter', function (require) {
     'use strict';
     var core = require('web.core');
     var ajax = require('web.ajax');
@@ -7,7 +7,7 @@ odoo.define('website_portal_comments_attachments.chatter', function (require) {
     PortalChatter.include({
         _loadTemplates: function(){
             var res = this._super.apply(this, arguments);
-            ajax.loadXML('/website_portal_comments_attachments/static/src/xml/portal_chatter.xml', core.qweb);
+            ajax.loadXML('/website_portal_comment_attachment/static/src/xml/portal_chatter.xml', core.qweb);
             return res;
         },
         _onClickAttachmentsAdd: function(){
