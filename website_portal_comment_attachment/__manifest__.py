@@ -12,7 +12,7 @@
     "application": False,
     "installable": True,
     "depends": [
-        "website",
+        "portal",
     ],
     "data": [
         "views/assets.xml",
